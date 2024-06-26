@@ -3,6 +3,9 @@ import WebFont from "webfontloader";
 
 // Loading Scenes
 import { Menu } from "./scenes/menu.ts";
+import { Play } from "./scenes/play.ts";
+import { Settings } from "./scenes/settings.ts";
+import { Credits } from "./scenes/credits.ts";
 
 let config = {
   type: Phaser.CANVAS,
@@ -12,7 +15,8 @@ let config = {
     width: 750,
     height: 1280
   },
-  scene: [Menu]
+  scene: [Play],
+  //scene: [Menu, Play, Settings, Credits],
 };
 
 export const SlugCrossing = new Phaser.Game(config);

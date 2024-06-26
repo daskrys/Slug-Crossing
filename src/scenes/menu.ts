@@ -25,8 +25,7 @@ export class Menu extends Phaser.Scene {
             yoyo: true,
         });
 
-        // hover color D2C32D BF9740
-
+        // main menu buttons
         const play_button: Phaser.GameObjects.Text = this.add.text(center_x, center_y + 130, "play", {
             fontFamily: "Chakra Petch",
             color: "#D2C32D",
@@ -44,7 +43,7 @@ export class Menu extends Phaser.Scene {
         });
 
         play_button.on("pointerdown", () => {
-            console.log('pushed');
+            this.scene.start("play");
         });
 
         const settings_button: Phaser.GameObjects.Text = this.add.text(center_x, center_y + 200, "settings", {
@@ -64,7 +63,7 @@ export class Menu extends Phaser.Scene {
         });
 
         settings_button.on("pointerdown", () => {
-            console.log('pushed');
+            this.scene.start("settings");
         });
 
         const credits_button: Phaser.GameObjects.Text = this.add.text(center_x, center_y + 270, "credits", {
@@ -84,7 +83,7 @@ export class Menu extends Phaser.Scene {
         });
 
         credits_button.on("pointerdown", () => {
-            console.log('pushed');
+            this.scene.start("credits");
         });
     }
 
