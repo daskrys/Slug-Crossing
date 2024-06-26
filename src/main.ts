@@ -1,24 +1,27 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import Phaser from "phaser";
+import WebFont from "webfontloader";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+// Loading Scenes
+import { Menu } from "./scenes/menu.ts";
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+let config = {
+  type: Phaser.CANVAS,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+    width: 750,
+    height: 1280
+  },
+  scene: [Menu]
+};
+
+export const SlugCrossing = new Phaser.Game(config);
+
+WebFont.load({
+  google: {
+    families: ['Chakra Petch'],
+  },
+  active: function() {
+    SlugCrossing.scene.start("Menu");
+  },
+});
