@@ -1,25 +1,27 @@
 import Phaser from "phaser";
 
 export class Menu extends Phaser.Scene {
-    
+
     constructor() {
         super("menu");
     }
 
     preload() {
         this.load.image("title", "assets/slug-crossing.png");
+        this.load.image("menu-bg", "assets/background.png");
     }
 
     create() {
-        this.cameras.main.setBackgroundColor(0x141413);
+        
         const center_x: number = this.game.canvas.width / 2;
         const center_y: number = this.game.canvas.height / 2;
-
+        const background: Phaser.GameObjects.Image = this.add.image(center_x, center_y, "menu-bg").setScale(1.20);
         const title_png: Phaser.GameObjects.Image = this.add.image(center_x, center_y - 200, "title").setScale(0.5);
+
         this.tweens.add({
             targets: title_png,
             y: center_y - 150,
-            duration: 5000,
+            duration: 4000,
             ease: "Power2",
             repeat: -1,
             yoyo: true,
