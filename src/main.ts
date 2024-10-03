@@ -15,8 +15,8 @@ let config = {
     width: 750,
     height: 1280
   },
-  //scene: [Play],
-  scene: [Menu, Play, Settings, Credits],
+  scene: [Play],
+  //scene: [Menu, Play, Settings, Credits],
 };
 
 export const SlugCrossing = new Phaser.Game(config);
